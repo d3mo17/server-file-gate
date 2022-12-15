@@ -1,0 +1,20 @@
+{
+    "description": "Allows to upload and select files within a popup dialog window",
+    "name": "d3mo17/server-file-gate",
+    "version": "0.10.0",
+    "type": "project",
+    "license": "mit",
+    "keywords": ["files", "select", "dialog", "mustache"],
+    "authors": [
+      {
+        "name": "Daniel Moritz"
+      }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "mustache/mustache": "^2.14"
+    },
+    "autoload": {
+      "psr-4": { "DMo\\ServerFileGate\\": "lib" }
+    }
+}
