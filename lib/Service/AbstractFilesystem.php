@@ -74,8 +74,6 @@ abstract class AbstractFilesystem
         'php' => ['php', 'PHP Script'],
         'ps' => ['ps', 'Postscript File'],
         'dvi' => ['dvi', 'DVI File'],
-        'swf' => ['swf', 'Flash'],
-        'chm' => ['chm', 'Compiled HTML Help'],
 
         // Unkown
         'default' => ['txt', 'Unkown Document']
