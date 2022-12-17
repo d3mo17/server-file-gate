@@ -7,12 +7,12 @@ class DialogTrigger
     /**
      * @var string $dialogURL
      */
-    private $dialogURL;
+    protected $dialogURL;
 
     /**
      * @var array $parameters
      */
-    private $parameters;
+    protected $parameters;
 
     /**
      * @param string $urlToDialog
@@ -39,16 +39,18 @@ class DialogTrigger
         int $dialogWith = 590,
         int $dialogHeight = 420
     ) {
-        return <<<html
-        <a href="javascript:showFileDialog()">$linkLabel</a>
-        <script>
-
-            function showFileDialog()
-            {
-                window.open('$this->dialogURL?cb=$jsCallbackName&pDir=$absStartPath&filetypes=$fileTypes{$this->getParameters()}', 'dialogwin', 'width=$dialogWith,height=$dialogHeight,resizable=1,toolbar=0,status=0');
-            }
-        </script>
-html;
+        return sprintf(
+            "<a href=\"javascript:window.open('%s?cb=%s&pDir=%s%s%s','dialogwin',"
+                ."'width=%d,height=%d,resizable=1,toolbar=0,status=0')\">%s</a>",
+            $this->dialogURL,
+            $jsCallbackName,
+            $absStartPath,
+            empty($fileTypes) ? '' : '&filetypes='.$fileTypes,
+            $this->getParameters(),
+            $dialogWith,
+            $dialogHeight,
+            $linkLabel
+        );
     }
 
     /**
