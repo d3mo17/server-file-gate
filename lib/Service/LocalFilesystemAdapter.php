@@ -59,7 +59,7 @@ class LocalFilesystemAdapter extends AbstractFilesystem
                         'label' => str_replace($this->baseDir, '', $memoryFile),
                         'name' => $file,
                         'info' => $fileInfo,
-                        'icon' => $this->icons[$iconKey][0].'.gif'
+                        'icon' => $this->icons[$iconKey][0]
                     ];
                 }
             }
