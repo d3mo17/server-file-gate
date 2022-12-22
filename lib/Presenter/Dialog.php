@@ -89,7 +89,8 @@ class Dialog
                         ['name' => 'variable', 'value' => '---'],
                         ['name' => 'cb', 'value' => $this->requestParams['cb']]
                     ],
-                    'errors' => $this->getErrorsForTemplate()
+                    'errors' => $this->getErrorsForTemplate(),
+                    'hasErrors' => !empty($this->errors)
                 ]
             )
         );
@@ -115,16 +116,12 @@ class Dialog
         if (!empty($_FILES['upload']['tmp_name'])) {
             $allowedSuffixes = $config->getAllowedFileTypeSuffixes();
             if (!empty($allowedSuffixes) && !in_array(pathinfo($_FILES['upload']['name'])['extension'], $allowedSuffixes)) {
-                $dialog->errors[] = [
-                    'wrongFiletype' => implode(', ', $allowedSuffixes)
-                ];
+                $dialog->errors['wrongFiletype'] = implode(', ', $allowedSuffixes);
             } else {
                 if (empty($_FILES['upload']['error'])) {
                     move_uploaded_file($_FILES['upload']['tmp_name'], $dialog->getCurrentDir() . '/' . $_FILES['upload']['name']);
                 } else {
-                    $dialog->errors[] = [
-                        'uploadError' => $_FILES['upload']['error']
-                    ];
+                    $dialog->errors['uploadError'] = $_FILES['upload']['error'];
                 }
             }
         }

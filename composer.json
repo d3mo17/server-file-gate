@@ -1,7 +1,7 @@
 {
     "description": "Allows to upload and select files within a popup dialog window",
     "name": "d3mo17/server-file-gate",
-    "version": "0.11.0",
+    "version": "0.12.0",
     "type": "project",
     "license": "mit",
     "keywords": ["files", "select", "dialog", "mustache"],
