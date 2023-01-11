@@ -40,7 +40,7 @@ class DialogTrigger
         int $dialogHeight = 420
     ) {
         return sprintf(
-            "<a href=\"javascript:window.open('%s?cb=%s&pDir=%s%s%s','dialogwin',"
+            "<a href=\"javascript:void(0)\" onclick=\"window.open('%s?cb=%s&pDir=%s%s%s','dialogwin',"
                 ."'width=%d,height=%d,resizable=1,toolbar=0,status=0')\">%s</a>",
             $this->dialogURL,
             $jsCallbackName,
